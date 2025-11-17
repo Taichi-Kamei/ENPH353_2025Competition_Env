@@ -232,5 +232,32 @@
     </sensor>
   </gazebo>
 
+  <gazebo reference="lidar_link">
+    <sensor type="ray" name="laser_sensor">
+      <update_rate>20</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>       <!-- resolution -->
+            <resolution>1</resolution>
+            <min_angle>-1.57</min_angle> <!-- -90 degrees -->
+            <max_angle>1.57</max_angle>  <!-- +90 degrees -->
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>10.0</max>
+        </range>
+      </ray>
+
+      <!-- Plugin to publish /scan -->
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>lidar_link</frameName>
+      </plugin>
+
+    </sensor>
+  </gazebo>
+
 
 </robot>

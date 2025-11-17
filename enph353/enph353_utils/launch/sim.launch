@@ -26,8 +26,8 @@
 		<include file="$(find enph353_gazebo)/launch/wind.launch"/>
 	</group>
 
-	<!-- Start the controller node -->
+	<!-- Start the controller node 
 	<node pkg="controller" type="state_machine.py" name="state_machine" output="screen">
-	</node>
+	</node>-->
 
 </launch>
